@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Note.Pages.CreateNotePage"
+             xmlns:noteViewModel = "clr-namespace:Note.ViewModels"
+             x:DataType="noteViewModel:CreateNoteViewModel"
+             Title="CreateNote">
+    <StackLayout Padding="20">
+        <Border Stroke="gray" 
+                Margin="0, 0, 0, 20"
+                Padding="10, 5">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="5"/>
+            </Border.StrokeShape>
+            <Entry Placeholder="Enter Your Title..."
+                   Text="{Binding Title}"
+                   FontSize="18"
+                   FontAttributes="Bold"/>
+        </Border>
+
+        <Border Stroke="gray" 
+                HeightRequest="500" 
+                Margin="0, 0, 0, 30"
+                Padding="10, 0, 0, 0">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="5"/>
+            </Border.StrokeShape>
+            <Editor Placeholder="Enter Your Note..." 
+                   Text="{Binding Note}"/>
+        </Border>
+
+        <HorizontalStackLayout HorizontalOptions="Center"
+                               Spacing="20">
+            <Button Text="SAVE"
+                BackgroundColor="Black"
+                FontAttributes="Bold"
+                CharacterSpacing="3"
+                HeightRequest="50"
+                WidthRequest="150"
+                FontSize="20"
+                Command="{Binding SaveButtonClickCommand}"/>
+            
+            <Button Text="View Notes"
+                BackgroundColor="Black"
+                FontAttributes="Bold"
+                CharacterSpacing="3"
+                HeightRequest="50"
+                WidthRequest="150"
+                FontSize="20"
+                Command="{Binding ViewNoteButtonClickCommand}"/>
+        </HorizontalStackLayout>
+    </StackLayout>
+</ContentPage>
