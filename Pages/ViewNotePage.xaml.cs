@@ -17,11 +17,4 @@ public partial class ViewNotePage : ContentPage
 		base.OnNavigatedTo(args);
 		viewModel.RetriveAllNotes();
     }
-
-	protected override void OnNavigatedFrom(NavigatedFromEventArgs args)
-	{
-		base.OnNavigatedFrom(args);
-		viewModel.ClearNoteList();
-		Console.WriteLine(":::Hello");
-	}
 }

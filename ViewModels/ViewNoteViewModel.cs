@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Note.Data;
 using Note.Models;
+using Note.Pages;
 using System.Collections.ObjectModel;
 
 namespace Note.ViewModels;
@@ -23,16 +24,17 @@ public partial class ViewNoteViewModel : ObservableObject
     public async void RetriveAllNotes()
     {
         var notes = await databaseContext.GetAllNotes();
-
-        foreach (var note in notes)
+        await Task.Run(() =>
         {
-            NoteCollection.Add(note);
-        }
-    }
-
-    public void ClearNoteList()
-    {
-        NoteCollection.Clear();
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                NoteCollection.Clear();
+                foreach (var note in notes)
+                {
+                    NoteCollection.Add(note);
+                }
+            });
+        });
     }
 
     [RelayCommand]
