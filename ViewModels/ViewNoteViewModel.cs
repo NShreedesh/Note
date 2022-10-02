@@ -44,4 +44,10 @@ public partial class ViewNoteViewModel : ObservableObject
         await databaseContext.DeleteOneNote(note);
         NoteCollection.Remove(note);
     }
+
+    [RelayCommand]
+    public async void NoteItemTapped(object noteId)
+    {
+        await Shell.Current.GoToAsync($"..?id={(int)noteId}", true);
+    }
 }

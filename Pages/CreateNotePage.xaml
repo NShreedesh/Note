@@ -31,14 +31,14 @@
 
         <HorizontalStackLayout HorizontalOptions="Center"
                                Spacing="20">
-            <Button Text="SAVE"
+            <Button Text="{Binding SaveButtonName}"
                 BackgroundColor="Black"
                 FontAttributes="Bold"
                 CharacterSpacing="3"
                 HeightRequest="50"
                 WidthRequest="150"
                 FontSize="20"
-                Command="{Binding SaveButtonClickCommand}"/>
+                Command="{Binding SaveOrUpdateButtonClickCommand}"/>
             
             <Button Text="View Notes"
                 BackgroundColor="Black"

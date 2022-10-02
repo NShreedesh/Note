@@ -28,6 +28,11 @@
                             </SwipeView.RightItems>
                             <HorizontalStackLayout Spacing="10"
                                                    Padding="20">
+                                <HorizontalStackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewNoteViewModel:ViewNoteViewModel}}, Path=NoteItemTappedCommand}"
+                                                            CommandParameter="{Binding Id}"/>
+                                </HorizontalStackLayout.GestureRecognizers>
+                                
                                 <Label Text="{Binding Title}" 
                                        HorizontalOptions="Fill"/>
                             </HorizontalStackLayout>

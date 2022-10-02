@@ -17,4 +17,10 @@ public partial class ViewNotePage : ContentPage
 		base.OnNavigatedTo(args);
 		viewModel.RetriveAllNotes();
     }
+
+	protected override bool OnBackButtonPressed()
+    {
+        Shell.Current.GoToAsync("..?id=0");
+		return base.OnBackButtonPressed();
+	}
 }

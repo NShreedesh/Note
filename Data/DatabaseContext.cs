@@ -26,6 +26,13 @@ public class DatabaseContext : IDatabaseContext
         return users;
     }
 
+    public async Task<NoteTable> GetOneNote(int id)
+    {
+        await Init();
+        var user = await connection.GetAsync<NoteTable>(id);
+        return user;
+    }
+
     public async Task AddNewNote(NoteTable note)
     {
         await Init();

@@ -11,6 +11,7 @@ public interface IDatabaseContext
 {
     public Task AddNewNote(NoteTable note);
     public Task<List<NoteTable>> GetAllNotes();
+    public Task<NoteTable> GetOneNote(int id);
     public Task DeleteOneNote(NoteTable noteTable);
     public Task DeleteAllNotes();
     public Task UpdateNote(NoteTable noteTable);
